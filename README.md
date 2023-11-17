@@ -7,7 +7,8 @@ AHMAD ALIEF FIRNAS HASYIMI F551 22 019 <br>
 MARCO TRISANCAI PENGADA F551 22 022 <br>
 
 1. Tampilan Beranda <br>
-![4](https://github.com/Marc723/E-Library_UTS/assets/112938927/cdcf9f60-768c-4622-8d21-5028efac33c9 =100x20)
+<img src="Beranda.png" height="200px"/>
+![4](https://github.com/Marc723/E-Library_UTS/assets/112938927/cdcf9f60-768c-4622-8d21-5028efac33c9)
 ![2](https://github.com/Marc723/E-Library_UTS/assets/112938927/e83cfd5b-68ea-4d24-8678-6926226b7c10)
 ![3](https://github.com/Marc723/E-Library_UTS/assets/112938927/dc245726-baac-4068-a811-fb764e4d1c16)
 ![5](https://github.com/Marc723/E-Library_UTS/assets/112938927/c1d22f0b-bf36-4e75-bb4e-0c6406d3e3dc)

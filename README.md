@@ -6,8 +6,8 @@ ABILON MARDHIKA HENOKH ABDIANS F551 22 017 <br>
 AHMAD ALIEF FIRNAS HASYIMI F551 22 019 <br>
 MARCO TRISANCAI PENGADA F551 22 022 <br>
 
-1. Tampilan Beranda <br>
-<img src="Beranda.jpg" height="200px"/>
+Tampilan Beranda <br>
+<img src="Beranda.jpg" height="1000px"/>
 ![4](https://github.com/Marc723/E-Library_UTS/assets/112938927/cdcf9f60-768c-4622-8d21-5028efac33c9)
 ![2](https://github.com/Marc723/E-Library_UTS/assets/112938927/e83cfd5b-68ea-4d24-8678-6926226b7c10)
 ![3](https://github.com/Marc723/E-Library_UTS/assets/112938927/dc245726-baac-4068-a811-fb764e4d1c16)

@@ -7,11 +7,14 @@ AHMAD ALIEF FIRNAS HASYIMI F551 22 019 <br>
 MARCO TRISANCAI PENGADA F551 22 022 <br>
 
 Tampilan Beranda <br>
-<img src="Beranda.jpg" height="1000px"/>
-![4](https://github.com/Marc723/E-Library_UTS/assets/112938927/cdcf9f60-768c-4622-8d21-5028efac33c9)
-![2](https://github.com/Marc723/E-Library_UTS/assets/112938927/e83cfd5b-68ea-4d24-8678-6926226b7c10)
-![3](https://github.com/Marc723/E-Library_UTS/assets/112938927/dc245726-baac-4068-a811-fb764e4d1c16)
-![5](https://github.com/Marc723/E-Library_UTS/assets/112938927/c1d22f0b-bf36-4e75-bb4e-0c6406d3e3dc)
-![1](https://github.com/Marc723/E-Library_UTS/assets/112938927/4fc7e0aa-b344-46ac-ae27-a8c60b362225)
-![6](https://github.com/Marc723/E-Library_UTS/assets/112938927/e3536202-08f4-4549-8b73-3df85e1647dc)
-
+<img src="Beranda.jpg" height="1000px"/> <br>
+Tampilan Riwayat <br>
+<img src="Riwayat.jpg" height="1000px"/> <br>
+Tampilan Profile <br>
+<img src="Profile.jpg" height="1000px"/> <br>
+Tampilan Menu <br>
+<img src="Menu.jpg" height="1000px"/> <br>
+Tampilan Edit Profile <br>
+<img src="Edit Profile.jpg" height="1000px"/> <br>
+Tampilan Buku <br>
+<img src="Buku.jpg" height="1000px"/> <br>

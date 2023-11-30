@@ -6,7 +6,7 @@ import android.os.Parcelable;
 public class Buku implements Parcelable {
     private String name;
     private String description;
-    private Integer photo;
+    private String photoUrl;
 
     public String getName(){return name;}
 
@@ -17,10 +17,13 @@ public class Buku implements Parcelable {
     public void setDescription(String description){
         this.description = description;
     }
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
 
-    public Integer getPhoto(){return photo;}
-
-    public void setPhoto(Integer photo){this.photo = photo;}
 
     @Override
     public int describeContents(){
@@ -30,7 +33,7 @@ public class Buku implements Parcelable {
     public void writeToParcel(Parcel dest, int flags){
         dest.writeString(this.name);
         dest.writeString(this.description);
-        dest.writeInt(this.photo);
+        dest.writeString(this.photoUrl);
     }
     public Buku(){
 
@@ -38,7 +41,7 @@ public class Buku implements Parcelable {
     private Buku(Parcel in){
         this.name = in.readString();
         this.description = in.readString();
-        this.photo = in.readInt();
+        this.photoUrl = in.readString();
     }
     public static final Creator<Buku> CREATOR =
             new Creator<Buku>(){
@@ -51,4 +54,5 @@ public class Buku implements Parcelable {
                     return new Buku[size];
                 }
             };
+
 }

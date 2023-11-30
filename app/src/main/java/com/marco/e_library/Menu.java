@@ -6,21 +6,28 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.squareup.picasso.Picasso;
+
 public class Menu extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
-        int photoResource = getIntent().getIntExtra("HERO_PHOTO", 0);
-        String name = getIntent().getStringExtra("HERO_NAME");
-        String description = getIntent().getStringExtra("HERO_DESCRIPTION");
-        ImageView imageView = findViewById(R.id.img_item_photo);
-        TextView nameTextView = findViewById(R.id.tv_item_name);
-        TextView descriptionTextView = findViewById(R.id.tv_item_description);
-        imageView.setImageResource(photoResource);
-        nameTextView.setText(name);
-        descriptionTextView.setText(description);
-    }
 
+        Buku book = getIntent().getParcelableExtra("SELECTED_BOOK");
+
+        if (book != null) {
+            // Use Picasso to load the image from the URL
+            ImageView imageView = findViewById(R.id.img_item_photo);
+            Picasso.get().load(book.getPhotoUrl()).into(imageView);
+
+            TextView nameTextView = findViewById(R.id.tv_item_name);
+            TextView descriptionTextView = findViewById(R.id.tv_item_description);
+
+            // Set the views with the data from the Buku object
+            nameTextView.setText(book.getName());
+            descriptionTextView.setText(book.getDescription());
+        }
+    }
 }

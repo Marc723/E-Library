@@ -1,5 +1,4 @@
 package com.marco.e_library;
-
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,60 +10,69 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class ListBukuAdapter extends RecyclerView.Adapter<ListBukuAdapter.ListViewHolder> {
-    private ArrayList<Buku> listHero;
+    private ArrayList<Buku> listBuku;
     private OnItemClickCallback onItemClickCallback;
-    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback){
+
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback;
     }
-    public ListBukuAdapter(ArrayList<Buku> list) { this.listHero = list; }
+
+    public ListBukuAdapter(ArrayList<Buku> list) {
+        this.listBuku = list;
+    }
 
     @NonNull
     @Override
-    public ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-        View view = LayoutInflater.from(parent.getContext()).inflate
-                (R.layout.item_row_hero, parent, false);
+    public ListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_row_hero, parent, false);
         return new ListViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final ListViewHolder holder, int position) {
-        Buku hero = listHero.get(position);
-        holder.imgPhoto.setImageResource(hero.getPhoto());
-        holder.tvName.setText(hero.getName());
-        holder.tvDescription.setText(hero.getDescription());
+        Buku buku = listBuku.get(position);
+
+        // Load image using Picasso (replace 'your_image_view_id' with your actual ImageView ID)
+        Picasso.get().load(buku.getPhotoUrl()).into(holder.imgPhoto);
+
+        holder.tvName.setText(buku.getName());
+        holder.tvDescription.setText(buku.getDescription());
 
         holder.itemView.setOnClickListener(v -> {
-            Buku selectedHero = listHero.get(holder.getAdapterPosition());
+            Buku selectedBook = listBuku.get(holder.getAdapterPosition());
             Intent intent = new Intent(holder.itemView.getContext(), Menu.class);
-            intent.putExtra("HERO_PHOTO", hero.getPhoto());
-            intent.putExtra("HERO_NAME", hero.getName());
-            intent.putExtra("HERO_DESCRIPTION", hero.getDescription());
-            Toast.makeText(holder.itemView.getContext(), "Kamu memilih " + listHero.get(holder.getAdapterPosition()).getName(), Toast.LENGTH_SHORT).show();
+
+            // Pass the selected Buku object to Menu activity
+            intent.putExtra("SELECTED_BOOK", selectedBook);
+
+            Toast.makeText(holder.itemView.getContext(), "Kamu memilih " + selectedBook.getName(), Toast.LENGTH_SHORT).show();
             holder.itemView.getContext().startActivity(intent);
         });
     }
 
-    public interface OnItemClickCallback{
-        void onItemClicked(Buku data);
-    }
-
     @Override
     public int getItemCount() {
-        return listHero.size();
+        return listBuku.size();
     }
 
-    public class ListViewHolder extends RecyclerView.ViewHolder {
+    public static class ListViewHolder extends RecyclerView.ViewHolder {
         ImageView imgPhoto;
         TextView tvName, tvDescription;
 
-        ListViewHolder(View itemView){
+        ListViewHolder(View itemView) {
             super(itemView);
             imgPhoto = itemView.findViewById(R.id.img_item_photo);
             tvName = itemView.findViewById(R.id.tv_item_name);
             tvDescription = itemView.findViewById(R.id.tv_item_description);
         }
+    }
+
+    public interface OnItemClickCallback {
+        void onItemClicked(Buku data);
     }
 }

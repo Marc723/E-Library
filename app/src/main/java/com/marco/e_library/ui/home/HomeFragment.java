@@ -6,9 +6,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.marco.e_library.Buku;
 import com.marco.e_library.GridBukuAdapter;
 import com.marco.e_library.ListBukuAdapter;
+import com.marco.e_library.R;
 import com.marco.e_library.databinding.FragmentHomeBinding;
 
 import org.json.JSONArray;
@@ -51,7 +54,65 @@ public class HomeFragment extends Fragment {
         rvHeroes.setAdapter(gridHeroAdapter);
         gridHeroAdapter.setOnItemClickCallback(this::showSelectedHero);
         new FetchBooksTask().execute("https://www.dbooks.org/api/recent");
+
+        // Click listeners for notification and card clicks
+        ImageView notificationIcon = root.findViewById(R.id.notification);
+        notificationIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onNotificationClick();
+            }
+        });
+
+        CardView favoriteCard = root.findViewById(R.id.favorite_card);
+        favoriteCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onFavoritesCardClick();
+            }
+        });
+
+        CardView genreCard = root.findViewById(R.id.genre_card);
+        genreCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onGenreCardClick();
+            }
+        });
+
+        CardView locationCard = root.findViewById(R.id.location_card);
+        locationCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onLocationCardClick();
+            }
+        });
+
         return root;
+    }
+
+    // Method for notification click
+    public void onNotificationClick() {
+        Toast.makeText(requireContext(), "Notification Clicked", Toast.LENGTH_SHORT).show();
+        // Add your additional logic for notification click here
+    }
+
+    // Method for favorites card click
+    public void onFavoritesCardClick() {
+        Toast.makeText(requireContext(), "Favorites Card Clicked", Toast.LENGTH_SHORT).show();
+        // Add your additional logic for favorites card click here
+    }
+
+    // Method for genre card click
+    public void onGenreCardClick() {
+        Toast.makeText(requireContext(), "Genre Card Clicked", Toast.LENGTH_SHORT).show();
+        // Add your additional logic for genre card click here
+    }
+
+    // Method for location card click
+    public void onLocationCardClick() {
+        Toast.makeText(requireContext(), "Location Card Clicked", Toast.LENGTH_SHORT).show();
+        // Add your additional logic for location card click here
     }
 
     private void showSelectedHero(Buku hero) {

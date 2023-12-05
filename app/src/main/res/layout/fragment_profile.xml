@@ -18,52 +18,33 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:background="@color/green"
-                android:layout_height="250dp">
+                android:layout_height="250dp"
+                android:background="@color/green">
 
                 <ImageView
                     android:id="@+id/imageView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="fitXY"
-                    tools:src="@tools:sample/avatars"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/arc_3" />
+                    app:srcCompat="@drawable/arc_3"
+                    tools:src="@tools:sample/avatars" />
 
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:src="@tools:sample/avatars"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     app:layout_constraintBottom_toTopOf="@+id/imageView8"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/imageView8"
                     app:layout_constraintVertical_bias="0.445"
-                    app:srcCompat="@drawable/user_2" />
+                    app:srcCompat="@drawable/user"
+                    tools:src="@tools:sample/avatars" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="24dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    >
 
-                    <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/back" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/textView12"
@@ -71,9 +52,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     android:text="Profile"
-                    android:textSize="30sp"
                     android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="@+id/constraintLayout2"
+                    android:textSize="30sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -84,7 +64,7 @@
                 android:id="@+id/textView14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Marco TP"
+                android:text="Username"
                 android:textAlignment="center"
                 android:textSize="26sp"
                 android:layout_marginTop="8dp"
@@ -94,36 +74,39 @@
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="marco@gmail.com"
+                android:layout_marginTop="20dp"
+                android:text="mail@gmail.com"
                 android:textSize="18sp"
                 android:textAlignment="center"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/edit_profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="60dp"
                 android:layout_marginBottom="16dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:onClick="onNotificationsClick">
+                android:onClick="onEditProfileClick">
 
                 <ImageView
                     android:id="@+id/imageView14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     tools:src="@tools:sample/avatars"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/btn_1" />
+                    app:srcCompat="@drawable/edit" />
 
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Notifications"
+                    android:text="Edit Profile"
                     android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView14"
@@ -140,30 +123,34 @@
                     app:srcCompat="@drawable/arrow" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/favorite"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp">
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="16dp"
+                android:onClick="onFavoritesClick">
 
                 <ImageView
                     android:id="@+id/imageView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:src="@tools:sample/avatars"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/btn_2" />
+                    app:srcCompat="@drawable/favorites"
+                    tools:src="@tools:sample/avatars" />
 
                 <TextView
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Calendar"
+                    android:text="Favorites"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -174,120 +161,41 @@
                     android:id="@+id/imageView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:src="@tools:sample/avatars"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/arrow" />
+                    app:srcCompat="@drawable/arrow"
+                    tools:src="@tools:sample/avatars" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/delete_account"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="16dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp">
-
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:src="@tools:sample/avatars"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/btn_3" />
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="Gallery"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView6"
-                    app:layout_constraintTop_toTopOf="@+id/imageView6" />
-
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:src="@tools:sample/avatars"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/arrow" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp">
-
-                <ImageView
-                    android:id="@+id/imageView18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:src="@tools:sample/avatars"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/btn_4" />
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="Riwayat"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView18"
-                    app:layout_constraintTop_toTopOf="@+id/imageView18" />
-
-                <ImageView
-                    android:id="@+id/imageView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:src="@tools:sample/avatars"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/arrow" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp">
+                android:layout_marginEnd="24dp"
+                android:onClick="onDeleteAccountClick">
 
                 <ImageView
                     android:id="@+id/imageView10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:src="@tools:sample/avatars"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/btn_5" />
+                    app:srcCompat="@drawable/delete"
+                    tools:src="@tools:sample/avatars" />
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Bagikan"
+                    android:text="Delete Account"
                     android:textSize="20sp"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView10"

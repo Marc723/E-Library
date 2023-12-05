@@ -40,11 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_profile)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-
-        // Call the method to fetch data from the API
-        new FetchBooksTask().execute();
     }
 
     // AsyncTask to perform network operations in the background
@@ -142,8 +138,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Existing code...
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.bottom_nav_menu, menu);
@@ -153,8 +147,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-
-        // Handle item selection
         if (item.getItemId() == R.id.navigation_home) {
             navController.navigate(R.id.navigation_home);
         } else if (item.getItemId() == R.id.navigation_dashboard) {

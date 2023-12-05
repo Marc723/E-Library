@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.marco.e_library.Buku;
+import com.marco.e_library.GridBukuAdapter;
 import com.marco.e_library.ListBukuAdapter;
-import com.marco.e_library.R;
 import com.marco.e_library.databinding.FragmentHomeBinding;
 
 import org.json.JSONArray;
@@ -33,7 +33,7 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     private RecyclerView rvHeroes;
-    private ListBukuAdapter listHeroAdapter;
+    private GridBukuAdapter gridHeroAdapter;
     private ArrayList<Buku> list = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -43,18 +43,13 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
         rvHeroes = binding.rvHeroes;
-
         rvHeroes.setHasFixedSize(true);
-
-        listHeroAdapter = new ListBukuAdapter(list);
-        rvHeroes.setLayoutManager(new LinearLayoutManager(requireContext()));
-        rvHeroes.setAdapter(listHeroAdapter);
-        listHeroAdapter.setOnItemClickCallback(this::showSelectedHero);
-
+        gridHeroAdapter = new GridBukuAdapter(list);
+        rvHeroes.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false));
+        rvHeroes.setAdapter(gridHeroAdapter);
+        gridHeroAdapter.setOnItemClickCallback(this::showSelectedHero);
         new FetchBooksTask().execute("https://www.dbooks.org/api/recent");
-
         return root;
     }
 
@@ -98,7 +93,7 @@ public class HomeFragment extends Fragment {
         protected void onPostExecute(String result) {
             if (result != null) {
                 parseJsonResponse(result);
-                listHeroAdapter.notifyDataSetChanged(); // Notify adapter of data change
+                gridHeroAdapter.notifyDataSetChanged(); // Notify adapter of data change
             } else {
                 Toast.makeText(requireContext(), "Failed to fetch data from API", Toast.LENGTH_SHORT).show();
             }

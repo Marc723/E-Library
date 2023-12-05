@@ -4,9 +4,16 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Buku implements Parcelable {
+    private String id;
     private String name;
     private String description;
     private String photoUrl;
+    private String authors;
+
+
+    public String getId() {return id;}
+
+    public void setId(String id) {this.id = id;}
 
     public String getName(){return name;}
 
@@ -23,6 +30,13 @@ public class Buku implements Parcelable {
     public void setPhotoUrl(String photoUrl) {
         this.photoUrl = photoUrl;
     }
+    public String getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(String authors) {
+        this.authors = authors;
+    }
 
 
     @Override
@@ -31,18 +45,24 @@ public class Buku implements Parcelable {
     }
     @Override
     public void writeToParcel(Parcel dest, int flags){
+        dest.writeString(this.id);
         dest.writeString(this.name);
         dest.writeString(this.description);
         dest.writeString(this.photoUrl);
+        dest.writeString(this.authors);
     }
+
     public Buku(){
 
     }
     private Buku(Parcel in){
+        this.id = in.readString();
         this.name = in.readString();
         this.description = in.readString();
         this.photoUrl = in.readString();
+        this.authors = in.readString();
     }
+
     public static final Creator<Buku> CREATOR =
             new Creator<Buku>(){
                 @Override
@@ -54,5 +74,4 @@ public class Buku implements Parcelable {
                     return new Buku[size];
                 }
             };
-
-}
+    }

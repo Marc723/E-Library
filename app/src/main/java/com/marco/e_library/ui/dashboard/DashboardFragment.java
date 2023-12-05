@@ -95,7 +95,7 @@ public class DashboardFragment extends Fragment {
                 parseJsonResponse(result);
                 listHeroAdapter.notifyDataSetChanged(); // Notify adapter of data change
             } else {
-                Toast.makeText(requireContext(), "Failed to fetch data from API", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "Buku sudah tidak tersedia", Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -109,13 +109,15 @@ public class DashboardFragment extends Fragment {
                     for (int i = 0; i < booksArray.length(); i++) {
                         JSONObject bookObject = booksArray.getJSONObject(i);
 
+                        String id = bookObject.getString("id"); // Extract the "id" field
                         String name = bookObject.getString("title");
-                        String description = bookObject.getString("authors");
+                        String authors = bookObject.getString("authors");
                         String photoUrl = bookObject.getString("image");
 
                         Buku book = new Buku();
+                        book.setId(id);
                         book.setName(name);
-                        book.setDescription(description);
+                        book.setAuthors(authors);
                         book.setPhotoUrl(photoUrl);
 
                         list.add(book);

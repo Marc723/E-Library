@@ -1,6 +1,7 @@
 package com.marco.e_library;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,17 +45,21 @@ public class GridBukuAdapter extends RecyclerView.Adapter<GridBukuAdapter.ListVi
         holder.tvName.setText(buku.getName());
         holder.tvDescription.setText(buku.getDescription());
 
+        // In your GridBukuAdapter
         holder.itemView.setOnClickListener(v -> {
             Buku selectedBook = listBuku.get(holder.getAdapterPosition());
+
             Intent intent = new Intent(holder.itemView.getContext(), Menu.class);
 
             // Pass the selected Buku object to Menu activity
             intent.putExtra("SELECTED_BOOK", selectedBook);
-
             Toast.makeText(holder.itemView.getContext(), "Kamu memilih " + selectedBook.getName(), Toast.LENGTH_SHORT).show();
             holder.itemView.getContext().startActivity(intent);
         });
+
     }
+
+
 
     @Override
     public int getItemCount() {

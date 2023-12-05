@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Menu">
 
+
     <ImageView
         android:id="@+id/img_item_photo"
         android:layout_width="205dp"
@@ -18,31 +19,43 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
+        android:id="@+id/tv_item_authors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="70dp"
+        android:text="Penulis"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@+id/tv_item_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_item_photo"
+        app:layout_constraintVertical_bias="0.38" />
+
+    <TextView
         android:id="@+id/tv_item_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:text="Book Title"
-        android:textAlignment="center"
-        android:textStyle="bold"
         android:textColor="@android:color/black"
-        android:textSize="24sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_item_photo" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_item_authors" />
 
     <TextView
         android:id="@+id/tv_item_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:text="Book Description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        android:textColor="@android:color/darker_gray"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:text="deskripsi buku"
+        android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -58,5 +71,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_item_description" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

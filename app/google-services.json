@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "927714987871",
+    "project_id": "e-library-fe63d",
+    "storage_bucket": "e-library-fe63d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927714987871:android:d30153a48bc9ea53dbb0ea",
+        "android_client_info": {
+          "package_name": "com.marco.e_library"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZjqOBdwYzwUUnQjEaAm8R4PfnQ-8dkx8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

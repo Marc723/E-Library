@@ -141,7 +141,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/favorites"
+                    app:srcCompat="@drawable/logout"
                     tools:src="@tools:sample/avatars" />
 
                 <TextView
@@ -149,7 +149,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:text="Favorites"
+                    android:text="Logout"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold"

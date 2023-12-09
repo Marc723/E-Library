@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,9 +19,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.marco.e_library.Buku;
 import com.marco.e_library.GridBukuAdapter;
-import com.marco.e_library.ListBukuAdapter;
 import com.marco.e_library.R;
 import com.marco.e_library.databinding.FragmentHomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,22 +43,36 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     private RecyclerView rvHeroes;
     private GridBukuAdapter gridHeroAdapter;
+    private TextView hiUserTextView;
+    private TextView textViewUsername; // Added to display the username
     private ArrayList<Buku> list = new ArrayList<>();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         rvHeroes = binding.rvHeroes;
         rvHeroes.setHasFixedSize(true);
+
+        textViewUsername = root.findViewById(R.id.textView6); // Added to reference the TextView for the username
         gridHeroAdapter = new GridBukuAdapter(list);
-        rvHeroes.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false));
+        rvHeroes.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
         rvHeroes.setAdapter(gridHeroAdapter);
-        gridHeroAdapter.setOnItemClickCallback(this::showSelectedHero);
-        new FetchBooksTask().execute("https://www.dbooks.org/api/recent");
+
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            // If the user is authenticated, get the display name (replace with your desired user property)
+            String username = currentUser.getDisplayName();
+
+            if (username != null && !username.isEmpty()) {
+                // Set the "Hi, user" text with the actual username
+                hiUserTextView.setText("Hi, " + username);
+                textViewUsername.setText(username); // Set the username in the TextView
+            }
+
+            // Fetch additional user data (username) from Firestore
+            fetchUserData();
+        }
 
         // Click listeners for notification and card clicks
         ImageView notificationIcon = root.findViewById(R.id.notification);
@@ -88,35 +107,58 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        new FetchBooksTask().execute("https://www.dbooks.org/api/recent");
+
         return root;
     }
 
-    // Method for notification click
-    public void onNotificationClick() {
+    private void fetchUserData() {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            String uid = currentUser.getUid();
+
+            // Assuming you have a "users" collection in Firestore
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            DocumentReference userRef = db.collection("users").document(uid);
+
+            userRef.get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        // User data found in Firestore
+                        String username = document.getString("username");
+                        String hiUsername = "Hi, " + username;
+                        textViewUsername.setText(hiUsername); // Update the username in the TextView
+                    } else {
+                        // User data not found in Firestore
+                        Toast.makeText(requireContext(), "User data not found", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    // Error fetching user data
+                    Toast.makeText(requireContext(), "Error fetching user data", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+    private void onNotificationClick() {
         Toast.makeText(requireContext(), "Notification Clicked", Toast.LENGTH_SHORT).show();
         // Add your additional logic for notification click here
     }
 
-    // Method for favorites card click
-    public void onFavoritesCardClick() {
+    private void onFavoritesCardClick() {
         Toast.makeText(requireContext(), "Favorites Card Clicked", Toast.LENGTH_SHORT).show();
         // Add your additional logic for favorites card click here
     }
 
-    // Method for genre card click
-    public void onGenreCardClick() {
+    private void onGenreCardClick() {
         Toast.makeText(requireContext(), "Genre Card Clicked", Toast.LENGTH_SHORT).show();
         // Add your additional logic for genre card click here
     }
 
-    // Method for location card click
-    public void onLocationCardClick() {
+    private void onLocationCardClick() {
         Toast.makeText(requireContext(), "Location Card Clicked", Toast.LENGTH_SHORT).show();
         // Add your additional logic for location card click here
-    }
-
-    private void showSelectedHero(Buku hero) {
-        Toast.makeText(requireContext(), "Kamu Memilih " + hero.getName(), Toast.LENGTH_SHORT).show();
     }
 
     private class FetchBooksTask extends AsyncTask<String, Void, String> {

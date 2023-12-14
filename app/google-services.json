@@ -1,23 +1,13 @@
 {
   "project_info": {
-<<<<<<< HEAD
-    "project_number": "927714987871",
-    "project_id": "e-library-fe63d",
-    "storage_bucket": "e-library-fe63d.appspot.com"
-=======
     "project_number": "838358281021",
     "project_id": "e-library-8f7ba",
     "storage_bucket": "e-library-8f7ba.appspot.com"
->>>>>>> origin/master
   },
   "client": [
     {
       "client_info": {
-<<<<<<< HEAD
-        "mobilesdk_app_id": "1:927714987871:android:d30153a48bc9ea53dbb0ea",
-=======
         "mobilesdk_app_id": "1:838358281021:android:1dcfb670c61a76540cb354",
->>>>>>> origin/master
         "android_client_info": {
           "package_name": "com.marco.e_library"
         }
@@ -25,11 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-<<<<<<< HEAD
-          "current_key": "AIzaSyDZjqOBdwYzwUUnQjEaAm8R4PfnQ-8dkx8"
-=======
           "current_key": "AIzaSyD1YKZcazloyomkM2ffY-2ZYDun99mYg3E"
->>>>>>> origin/master
         }
       ],
       "services": {

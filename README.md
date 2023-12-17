@@ -8,15 +8,18 @@ MARCO TRISANCAI PENGADA F551 22 022 <br>
 EDGAR SENTAVITO PRASETYO F551 22 033 <br>
 AHMAD THAIFUR F551 22 014
 
+
+Tampilan Login <br>
+<img src="Login.jpg" height="800px"/> <br>
+Tampilan Register <br>
+<img src="Register.jpg" height="800px"/> <br>
 Tampilan Beranda <br>
 <img src="Beranda.jpg" height="800px"/> <br>
 Tampilan Riwayat <br>
-<img src="Riwayat.jpg" height="1000px"/> <br>
+<img src="Riwayat.jpg" height="800px"/> <br>
 Tampilan Profile <br>
-<img src="Profile.jpg" height="1000px"/> <br>
-Tampilan Menu <br>
-<img src="Menu.jpg" height="1000px"/> <br>
+<img src="Profile.jpg" height="800px"/> <br>
 Tampilan Edit Profile <br>
-<img src="Edit Profile.jpg" height="1000px"/> <br>
-Tampilan Buku <br>
-<img src="Buku.jpg" height="1000px"/> <br>
+<img src="Edit Profile.jpg" height="800px"/> <br>
+Tampilan Menu Buku <br>
+<img src="Tampilan Buku.jpg" height="800px"/> <br>

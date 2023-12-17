@@ -9,7 +9,7 @@ EDGAR SENTAVITO PRASETYO F551 22 033 <br>
 AHMAD THAIFUR F551 22 014
 
 Tampilan Beranda <br>
-<img src="Beranda.jpg" height="1000px"/> <br>
+<img src="Beranda.jpg" height="800px"/> <br>
 Tampilan Riwayat <br>
 <img src="Riwayat.jpg" height="1000px"/> <br>
 Tampilan Profile <br>

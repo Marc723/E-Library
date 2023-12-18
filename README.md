@@ -1,4 +1,4 @@
-# E-Library_UTS
+# E-Library
 Aplikasi Perpustakaan Online
 
 Kelompok 7: <br>
